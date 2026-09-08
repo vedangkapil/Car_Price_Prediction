@@ -10,7 +10,7 @@ app = FastAPI(title="Car Price Prediction API", version="1.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # later you can restrict to your streamlit domain
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
