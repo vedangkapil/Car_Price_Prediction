@@ -1,5 +1,7 @@
 # Car Price Prediction
 
+![Car Price Prediction application](screenshot.png)
+
 A machine-learning application that estimates a used car's selling price in **lakhs of Indian rupees**. It uses a trained Random Forest model behind a FastAPI prediction API, with an optional Streamlit interface.
 
 ## Features
@@ -142,4 +144,4 @@ This updates:
 - FastAPI and Uvicorn
 - Streamlit
 - pandas and scikit-learn
-- joblib# Car-Price-Prediction
+- joblib
