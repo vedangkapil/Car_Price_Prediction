@@ -1,12 +1,11 @@
+import os
+
 import streamlit as st
 import requests
 
 st.set_page_config(page_title="Car Price Prediction", page_icon="🚗", layout="centered")
 
-API_URL = (
-    "https://car-prediction-lpfl.onrender.com/predict"
-    or "http://127.0.0.1:8000/predict"
-)  # change if your endpoint differs
+API_URL = os.environ.get("API_URL", "http://127.0.0.1:8000/predict")
 
 st.title("🚗 Car Price Prediction")
 st.caption(
@@ -66,10 +65,10 @@ if st.button("Predict Price 💰"):
                 )
                 st.json(data)
             else:
-                st.success(f"✅ Predicted Selling Price: **₹ {pred:.2f} lakhs**")
+                st.success(f"Predicted Selling Price: **₹ {pred:.2f} lakhs**")
         else:
-            st.error(f"❌ API Error {res.status_code}")
+            st.error(f" API Error {res.status_code}")
             st.code(res.text)
     except requests.exceptions.RequestException as e:
-        st.error("❌ Could not connect to API. Is FastAPI running?")
+        st.error("Could not connect to API. Is FastAPI running?")
         st.code(str(e))
